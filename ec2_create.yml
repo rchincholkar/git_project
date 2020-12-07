@@ -5,7 +5,7 @@
   tasks:
     - name: launching AWS instance using Ansible
       ec2:
-        key_name: aws-tower3.3
+        key_name: rahulc
         instance_type: t2.micro
         instance_tags:
           Name: "rahulc-testing101"
