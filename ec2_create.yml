@@ -8,11 +8,11 @@
         key_name: aws-tower3.3
         instance_type: t2.micro
         instance_tags:
-          Name: "testing101"
+          Name: "rahulc-testing101"
         image: ami-0a74bfeb190bd404f
         region: ap-south-1
         wait: yes
-        group: sthakre-group
+        group: rahulc-sg
         count: 1
         vpc_subnet_id: subnet-f58e6f9c
         assign_public_ip: yes
