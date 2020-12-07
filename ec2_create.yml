@@ -1,0 +1,31 @@
+---
+- name: Ansible test
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: launching AWS instance using Ansible
+      ec2:
+        key_name: aws-tower3.3
+        instance_type: t2.micro
+        instance_tags:
+          Name: "testing101"
+        image: ami-0a74bfeb190bd404f
+        region: ap-south-1
+        wait: yes
+        group: sthakre-group
+        count: 1
+        vpc_subnet_id: subnet-f58e6f9c
+        assign_public_ip: yes
+      register: results
+    - name: "Artifact URL of test results to Tower Workflows"
+      set_stats:
+        data:
+          answer: "{{ results }}"     
+    - name: Wait for SSH to come up
+      wait_for:
+        host: "{{ item.private_ip }}" 
+        port: 22 
+        delay: 60
+        timeout: 320
+        state: started
+      with_items: '{{ results.instances }}'
