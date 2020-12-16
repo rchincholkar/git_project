@@ -5,6 +5,11 @@
       yum:
         name: nginx
         state: present
+    
+    - name: Install git
+      yum:
+        name: git
+        state: present
      
     - name: add index.html file
       git:
