@@ -7,9 +7,9 @@
         state: present
      
     - name: add index.html file
-      copy:
-        src: /tmp/index.html
-        dest: /usr/share/nginx/html/index.html
+      git:
+        repo: git@github.com:rchincholkar/web.git
+        dest: /usr/share/nginx/html/
 
     - name: Start Nginx
       service:
