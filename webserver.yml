@@ -18,7 +18,7 @@
      
     - name: add index.html file
       git:
-        repo: git@github.com:rchincholkar/web.git
+        repo: https://github.com/rchincholkar/web.git
         dest: /usr/share/nginx/html/
 
     - name: Start Nginx
