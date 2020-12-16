@@ -10,6 +10,12 @@
       yum:
         name: git
         state: present
+    
+    - name: Remove old documentroot
+      file:
+        path: /usr/share/nginx/html
+        state: absent
+        recurse: yes
      
     - name: add index.html file
       git:
