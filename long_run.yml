@@ -1,9 +1,11 @@
 - name: long running job
   hosts: localhost
   connection: local
+  vars:
+    timeout_value: 5400
   tasks:
   - name: sleep for 5400 seconds and continue with play
     wait_for:
-       timeout: 5400
+       timeout: {{ timeout_value }}
   - debug:
       msg: "job completed"
