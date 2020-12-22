@@ -6,6 +6,6 @@
   tasks:
   - name: sleep for 5400 seconds and continue with play
     wait_for:
-       timeout: {{ timeout_value }}
+       timeout: '{{ timeout_value }}'
   - debug:
       msg: "job completed"
